@@ -1,0 +1,15 @@
+[package]
+name = "bindi"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-files = "0.6.5"
+actix-web = "4.5.1"
+askama = { version = "0.12.1", default-features = false, features = ["with-actix-web"] }
+askama_actix = "0.14.0"
+dirs = "5.0.1"
+docx = "1.1.2"
+serde = { version = "1.0.196", features = ["derive"] }
