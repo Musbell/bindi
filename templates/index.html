@@ -4,27 +4,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Bindi</title>
-      <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
-    <div class="flex flex-col h-screen items-center justify-center space-y-4">
-    <div class="flex flex-col items-center space-y-4">
-        <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl/none">{{name}}</h1>
-    </div>
-    <div class="flex items-center justify-center w-full min-h-1/2">
-      <form hx-post="/generate" hx-trigger="submit" hx-target="#download-link" hx-swap-oob="true">
-            <div class="grid gap-4 w-full max-w-full px-4">
-                <textarea name="content" class="flex w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 min-h-[500px] resize-none" id="content" placeholder="Enter your text"></textarea>
-                <input name="count" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50" id="count" placeholder="Enter a number" required="" type="number">
-                <input name="filename" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50" id="filename" placeholder="Filename" required="">
-                <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 hover:bg-blue-500 h-10 px-4 py-2 w-full bg-black text-white" type="submit">
-                    Submit
-                </button>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center justify-center min-h-screen space-y-4">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold tracking-tighter sm:text-5xl">{{name}}</h1>
             </div>
-        </form>
+            <div class="flex items-center justify-center w-full">
+                <form hx-post="/generate" hx-trigger="submit" hx-target="#download-link" hx-swap-oob="true" class="w-full max-w-4xl">
+                    <div class="grid gap-4 w-full px-4">
+                        <textarea name="content" class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 min-h-[500px] resize-none" id="content" placeholder="Enter your text"></textarea>
+                        <input name="count" class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50" id="count" placeholder="Enter a number" required="" type="number">
+                        <input name="filename" class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50" id="filename" placeholder="Filename" required="">
+                        <button class="w-full h-10 px-4 py-2 text-sm font-medium text-white transition-colors bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-blue-500 disabled:pointer-events-none disabled:opacity-50" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="download-link"></div>
+            <div id="error-message"></div>
+        </div>
     </div>
-    <div id="download-link"></div>
-    <div id="error-message"></div>
-    <div>
 </body>
 </html>
