@@ -3,8 +3,8 @@ use askama_actix::Template;
 use actix_files as fs;
 use serde::Deserialize;
 use std::path::Path;
-use docx::document::Paragraph;
-use docx::Docx;
+use docx_rust::document::Paragraph;
+use docx_rust::Docx;
 
 fn content_and_repeat(content: &str, count: usize, filename: &str) -> Result<String, String> {
     let repeated_content = content.repeat(count);
