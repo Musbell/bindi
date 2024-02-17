@@ -1,9 +1,4 @@
-# fly.toml app configuration file generated for bindi-red-dawn-3304 on 2024-02-17T12:39:01+01:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'bindi-red-dawn-3304'
+app = 'bindi'
 primary_region = 'cdg'
 
 [build]
@@ -20,3 +15,11 @@ primary_region = 'cdg'
   memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
+
+[[statics]]
+  guest_path = "/files"
+  url_prefix = "/files"
+
+[[statics]]
+  guest_path = "/static"
+  url_prefix = "/static"

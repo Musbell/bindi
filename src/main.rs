@@ -6,6 +6,7 @@ use std::path::Path;
 use docx_rust::document::Paragraph;
 use docx_rust::Docx;
 
+
 fn content_and_repeat(content: &str, count: usize, filename: &str) -> Result<String, String> {
     let repeated_content = content.repeat(count);
 
