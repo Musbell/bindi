@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the entire project
 COPY . .
 
+# Create the files directory
+RUN mkdir -p ./files
+
 RUN --mount=type=cache,target=/app/target/ \
     --mount=type=cache,target=/usr/local/cargo/registry/ \
     cargo build --locked --release && \
@@ -29,6 +32,9 @@ USER root
 
 # Copy the executable from the "build" stage.
 COPY --from=build /bin/server /bin/
+
+# Copy the files directory from the build stage
+COPY --from=build /app/files /app/files
 
 # Expose the port that the application listens on.
 EXPOSE 8080
